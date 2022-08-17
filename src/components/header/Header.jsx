@@ -5,7 +5,7 @@ import "./header.css"
 
 const Header = () => {
   const [Mobile, setMobile] = useState(false)
-  const [modalActive, setModalActive] = useState(true)
+  const [modalActive, setModalActive] = useState(false)
 
 
   const [User, setUser] = useState("You do not have a subscription yet")
@@ -44,8 +44,7 @@ const Header = () => {
                 </div>
               </li>
               <li>
-                <Random/>
-                {/* <a onClick={() => setModalActive(true)}>Get Random</a> */}
+                <a onClick={() => setModalActive(true)}>Get Random</a>
               </li>
               <li>
                 <a href='/'>Pricing</a>
@@ -58,7 +57,7 @@ const Header = () => {
               {Mobile ? <i className='fa fa-times'></i> : <i className='fa fa-bars'></i>}
             </button>
           </nav>
-          {/* <Random active={modalActive} setActive={setModalActive}/> */}
+          <Random active={modalActive} setActive={setModalActive}/>
 
           <div className='account flexSB'>
             <i className='fa fa-search'></i>

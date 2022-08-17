@@ -7,31 +7,26 @@ var randomElement = upcome[randomIndex]
 
 console.log(randomElement); 
 
-const Random = () => {
+
+const Random = ({active, setActive}) => {
     return (
-        <a onClick={() => alert(randomElement.name)}>Get Random</a>
+        <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
+            <div className='modal__content' onClick={e => e.stopPropagation()}>
+                <div className='MovieBox'>
+                    <div className='img'>
+                        <img src={randomElement.cover} alt='' />
+                    </div>
+                    <div className='text'>
+                        <h3>{randomElement.name}</h3>
+                        <span>{randomElement.toPrecisiontime}</span> <br />
+                        <button className='primary-btn'>
+                            <i className='fa fa-play'></i> PLAY NOW
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
-
-// const Random = ({active, setActive}) => {
-//     return (
-//         <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
-//             <div className='modal__content' onClick={e => e.stopPropagation()}>
-//                 <div className='MovieBox'>
-//                     <div className='img'>
-//                     <img src={randomIndex.cover} alt='' />
-//                 </div>
-//                 <div className='text'>
-//                     <h3>{randomIndex.name}</h3>
-//                     <span>{randomIndex.toPrecisiontime}</span> <br />
-//                     <button className='primary-btn'>
-//                         <i className='fa fa-play'></i> PLAY NOW
-//                     </button>
-//                 </div>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
 
 export default Random;
