@@ -1,25 +1,22 @@
 import React, { useState, useEffect } from "react"
 import Random from "../random/Random"
+import Subscription from "../subscription/Subscription"
 
 import "./header.css"
 
 const Header = () => {
   const [Mobile, setMobile] = useState(false)
   const [modalActive, setModalActive] = useState(false)
-
-
+  const [subscriptionActive, setSubscriptionActive] = useState(false)
   const [User, setUser] = useState("You do not have a subscription yet")
   const [Sub, setSub] = useState("Subscribe Now")
+  const [typeSub, setTypeSub] = useState("")
 
-  const checkSub = () => {
-    if (Sub === "Subscribed") {
-      setUser("You Subscribed")
-      alert(User)
-    } else {
-      setUser("You do not have a subscription yet")
-      alert(User)
+  useEffect(() => {
+    if(Sub === "Subscribed") {
+      setUser(`You are subscribed to ${typeSub}`)
     }
-  }
+  } , [Sub])
 
   return (
     <>
@@ -58,12 +55,15 @@ const Header = () => {
             </button>
           </nav>
           <Random active={modalActive} setActive={setModalActive}/>
+          <Subscription active={subscriptionActive} setActive={setSubscriptionActive} sub={setSub} typeSub={setTypeSub}/>
 
           <div className='account flexSB'>
             <i className='fa fa-search'></i>
             <i class='fas fa-bell'></i>
-            <i className='fas fa-user' onClick={() => checkSub()}></i>
-            <button onClick={() => setSub("Subscribed")}>{Sub}</button>
+            <i className='fas fa-user' onClick={() => alert(User)}></i>
+            <button onClick={() => {
+              setSubscriptionActive(true)
+            }}>{Sub}</button>
           </div>
         </div>
       </header>

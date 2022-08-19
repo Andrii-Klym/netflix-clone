@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
-import "./style.css"
 import { useParams } from "react-router-dom"
 import { homeData, recommended } from "../../dummyData"
 import Upcomming from "../upcoming/Upcomming"
+
+import "./style.css"
 
 const SinglePage = () => {
   const { id } = useParams()

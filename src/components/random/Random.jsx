@@ -5,9 +5,6 @@ import './random.css'
 let randomIndex = Math.floor(Math.random() * upcome.length);
 var randomElement = upcome[randomIndex]
 
-console.log(randomElement); 
-
-
 const Random = ({active, setActive}) => {
     return (
         <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>

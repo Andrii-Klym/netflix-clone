@@ -1,0 +1,24 @@
+.modal__box {
+    display: flex;
+    background-color: #181414;
+}
+
+.sub__box {
+    margin: 20px;
+}
+
+.discount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    height: 50px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
